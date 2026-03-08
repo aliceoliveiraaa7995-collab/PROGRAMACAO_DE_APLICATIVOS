@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Matriz {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int[][] m = new int[3][3];
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Digite um número: ");
+                m[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("Matriz:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(m[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.print("Diagonal principal: ");
+        for (int i = 0; i < 3; i++) {
+            System.out.print(m[i][i] + " ");
+        }
+
+        System.out.print("Diagonal secundária: ");
+        for (int i = 0; i < 3; i++) {
+            System.out.print(m[i][2 - i] + " ");
+        }
+
+        System.out.print("Acima da diagonal principal: ");
+        for (int i = 0; i < 3; i++) {
+            for (int j = i + 1; j < 3; j++) {
+                System.out.print(m[i][j] + " ");
+            }
+        }
+
+        System.out.print("Abaixo da diagonal principal: ");
+        for (int i = 1; i < 3; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print(m[i][j] + " ");
+            }
+        }
+    }
+}
