@@ -14,7 +14,7 @@ public class Main {
         a.iniciar();
 
         Navegador n = new Navegador("google.com");
-        n.navegar(); // herdado
+        n.navegar(); 
         n.exibir("google.com");
         n.adicionar();
         n.atualizar();
