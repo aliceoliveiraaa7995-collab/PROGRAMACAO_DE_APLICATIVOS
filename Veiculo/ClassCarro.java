@@ -5,7 +5,6 @@ public class Carro extends Veiculo {
         System.out.println("Carro ligado");
     }
 
-    // Sobrecarga
     public void ligar(boolean chavePresencial) {
         if (chavePresencial) {
             System.out.println("Carro ligado sem chave");
