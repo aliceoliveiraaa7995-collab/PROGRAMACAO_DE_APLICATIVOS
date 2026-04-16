@@ -2,10 +2,9 @@ public class Gerente extends Funcionario {
 
     @Override
     public double calcularSalario() {
-        return salario + 1000; // bônus fixo
+        return salario + 1000;
     }
 
-    // Sobrecarga
     public double calcularSalario(double bonus) {
         return salario + bonus;
     }
