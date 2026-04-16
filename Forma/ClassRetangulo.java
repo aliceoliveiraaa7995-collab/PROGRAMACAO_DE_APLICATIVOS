@@ -2,10 +2,9 @@ public class Retangulo extends Forma {
 
     @Override
     public double calcularArea() {
-        return 0; // sem valor definido
+        return 0; 
     }
 
-    // Sobrecarga
     public double calcularArea(double base, double altura) {
         return base * altura;
     }
