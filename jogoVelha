@@ -1,0 +1,157 @@
+public class GameVelha extends javax.swing.JFrame {
+
+    String simb = "O";
+    String[] caminho = new String[9];
+    int nj = 0, j1 = 0, j2 = 0, emp = 0;
+    String nome1 = "", nome2 = "";
+    boolean enc = false;
+/* 
+Esse método é responsável por armazenar e controlar as principais informações do jogo. A classe GameVelha representa toda a interface de onde o jogo acontece. Dentro dela, foram criadas variáveis que controlam a partida, o símbolo usado pelos jogadores (X e O), as combinações jogadas no tabuleiro (caminhos),a quantidade de jogadas (9), o número de vitórias de cada jogador, a quantidade de empates, os nomes dos jogadores e uma validação para saber se o jogo já terminou (pela variável "enc" que impede que o a rodada continue após identificar um vencedor).
+*/
+
+
+public void inicializar() {
+
+        for (int i = 0; i < 9; i++) {
+            caminho[i] = "";
+        }
+
+        B1.setText("");
+        B2.setText("");
+        B3.setText("");
+        B4.setText("");
+        B5.setText("");
+        B6.setText("");
+        B7.setText("");
+        B8.setText("");
+        B9.setText("");
+
+        enc = false;
+
+        estatistica();
+
+        nj = 0;
+    }
+/*
+O método inicializar é responsável por reiniciar o jogo da velha para começar uma nova partida. Também redefine a variável enc para false, indicando que o jogo ainda não terminou, atualiza as estatísticas na tela através do método estatistica e zera a quantidade de jogadas (nj = 0). Basicamente, esse método “reseta” o tabuleiro e prepara o jogo para uma nova rodada.
+*/
+
+
+public void nomear() {
+
+        nome1 = JOptionPane.showInputDialog(
+                null,
+                "Digite o primeiro nome: ",
+                "Jogador 1",
+                1
+        );
+
+        nome2 = JOptionPane.showInputDialog(
+                null,
+                "Digite o segundo nome: ",
+                "Jogador 2",
+                1
+        );
+
+        idNome.setText(nome1);
+
+        estatistica();
+    }
+/*
+O método nomear é responsável por pedir e armazenar os nomes dos dois jogadores. O primeiro nome é salvo na variável nome1 e o segundo em nome2. Depois disso, o programa mostra na tela o nome do jogador que começará a partida, utilizando o idNome. Por fim, o método usa estatistica para atualizar as estatísticas com os nomes dos jogadores na interface do jogo.
+*/
+
+
+public void estatistica() {
+
+        estatistica1.setText(nome1 + " = " + j1);
+        estatistica2.setText(nome2 + " = " + j2);
+        estatistica3.setText("Empate = " + emp);
+    }
+/*
+O método estatistica é responsável por atualizar o placar do jogo na interface. Ele mostra o nome do jogador 1 junto com sua quantidade de vitórias (j1), o nome do jogador 2 junto com sua quantidade de vitórias (j2) e a quantidade de empates (emp). Essas informações são exibidas em estatistica1, estatistica2 e estatistica3, mantendo o placar do jogo atualizado na tela.
+*/
+
+
+public String simbolo() {
+
+        if (simb.equals("O")) {
+
+            simb = "X";
+            idNome.setText(nome2);
+
+        } else {
+
+            simb = "O";
+            idNome.setText(nome1);
+        }
+
+        nj++;
+
+        return simb;
+    }
+/*
+O método simbolo é responsável por alternar os símbolos dos jogadores durante a partida. Ele verifica qual símbolo está sendo usado no momento, se for "O", ele troca para "X" e mostra na tela o nome do segundo jogador. Caso contrário, troca para "O" e mostra o nome do primeiro jogador. Além disso, o método aumenta a quantidade de jogadas através da variável nj, registrando cada jogada realizada.
+*/
+
+
+public void resultado() {
+
+        int id = 1;
+
+        while ((id < 9) && (enc == false)) {
+
+            if (caminho[id].length() == 3) {
+
+                if ((caminho[id].equals("XXX"))) {
+
+                    JOptionPane.showMessageDialog(
+                            null,
+                            nome1 + ", você ganhou",
+                            "Resultado: ",
+                            1
+                    );
+
+                    j1++;
+                    enc = true;
+
+                    inicializar();
+                }
+
+            } else if ((caminho[id].equals("OOO"))) {
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        nome2 + ", você ganhou",
+                        "Resultado:",
+                        1
+                );
+
+                j2++;
+                enc = true;
+
+                inicializar();
+            }
+
+            id++;
+
+            if ((nj == 9) && (enc == false)) {
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Jogo empatado",
+                        "Resultado: ",
+                        1
+                );
+
+                emp++;
+
+                inicializar();
+            }
+        }
+    }
+/*
+O método resultado é responsável por verificar o resultado da partida. Ele percorre o vetor caminho, que guarda as combinações das linhas, colunas e diagonais do jogo, procurando sequências vencedoras. Quando encontra "XXX", significa que o jogador com o símbolo X venceu, então o programa mostra uma mensagem de vitória, adiciona um ponto ao jogador 1 (j1), marca o jogo como encerrado (enc = true) e reinicia o tabuleiro usando inicializar. Se encontrar "OOO", faz o mesmo processo para o jogador 2, aumentando j2. Além disso, o método também verifica se todas as 9 jogadas já foram realizadas (nj == 9) sem existir vencedor. Nesse caso, o jogo termina empatado, o contador de empates (emp) aumenta e o tabuleiro é reiniciado.
+*/
+
+
