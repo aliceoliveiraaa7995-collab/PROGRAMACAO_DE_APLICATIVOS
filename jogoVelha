@@ -151,7 +151,7 @@ public void resultado() {
         }
     }
 /*
-O método resultado é responsável por verificar o resultado da partida. Ele percorre o vetor caminho, que guarda as combinações das linhas, colunas e diagonais do jogo, procurando sequências vencedoras. Quando encontra "XXX", significa que o jogador com o símbolo X venceu, então o programa mostra uma mensagem de vitória, adiciona um ponto ao jogador 1 (j1), marca o jogo como encerrado (enc = true) e reinicia o tabuleiro usando inicializar. Se encontrar "OOO", faz o mesmo processo para o jogador 2, aumentando j2. Além disso, o método também verifica se todas as 9 jogadas já foram realizadas (nj == 9) sem existir vencedor. Nesse caso, o jogo termina empatado, o contador de empates (emp) aumenta e o tabuleiro é reiniciado.
+O método resultado é responsável por verificar o resultado da partida. Ele percorre o vetor caminho, que guarda as combinações das linhas, colunas e diagonais do jogo, procurando sequências vencedoras. Quando encontra "XXX", significa que o jogador com o símbolo X venceu, então o programa mostra uma mensagem de vitória, adiciona um ponto ao jogador 1 (j1), marca o jogo como encerrado (enc = true) e reinicia o tabuleiro usando inicializar. Se encontrar "OOO", faz o mesmo processo para o jogador 2, aumentando j2. Além disso, o método também verifica se todas as 9 jogadas já foram realizadas (nj == 9) sem existir vencedor. Nesse caso, o jogo termina empatado, o contador de empates (emp) aumenta e o tabuleiro é reiniciado
 */
 
 
